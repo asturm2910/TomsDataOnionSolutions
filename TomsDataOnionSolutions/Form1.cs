@@ -65,5 +65,13 @@ namespace TomsDataOnionSolutions
             decodedText = bs.TomsOnionShifterDecodeAll(decodedText);
             encTextBox.Text = Utility.addSystemNewLine(decodedText);
         }
+
+        private void encodePhae2_Click(object sender, EventArgs e)
+        {
+            Encoder enc = new Encoder();
+            ParityBitEncoder pbe = new ParityBitEncoder();
+            string decodedText = enc.decodeAll(encTextBox.Text);
+
+        }
     }
 }

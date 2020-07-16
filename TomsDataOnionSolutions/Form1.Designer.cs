@@ -36,6 +36,7 @@
             this.ACII85Lable = new System.Windows.Forms.Label();
             this.encTextBox = new System.Windows.Forms.TextBox();
             this.encryptPhase2 = new System.Windows.Forms.Button();
+            this.encodePhae2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // EncryptButton
@@ -50,7 +51,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(278, 557);
+            this.saveButton.Location = new System.Drawing.Point(462, 559);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(87, 27);
             this.saveButton.TabIndex = 1;
@@ -104,9 +105,19 @@
             this.encryptPhase2.Name = "encryptPhase2";
             this.encryptPhase2.Size = new System.Drawing.Size(132, 27);
             this.encryptPhase2.TabIndex = 6;
-            this.encryptPhase2.Text = "Encrypt Phase 2";
+            this.encryptPhase2.Text = "Encrypt Phase 1";
             this.encryptPhase2.UseVisualStyleBackColor = true;
             this.encryptPhase2.Click += new System.EventHandler(this.encryptPhase2_Click);
+            // 
+            // encodePhae2
+            // 
+            this.encodePhae2.Location = new System.Drawing.Point(245, 557);
+            this.encodePhae2.Name = "encodePhae2";
+            this.encodePhae2.Size = new System.Drawing.Size(132, 27);
+            this.encodePhae2.TabIndex = 7;
+            this.encodePhae2.Text = "Encrypt Phase 2";
+            this.encodePhae2.UseVisualStyleBackColor = true;
+            this.encodePhae2.Click += new System.EventHandler(this.encodePhae2_Click);
             // 
             // EncryptionWindow
             // 
@@ -114,6 +125,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(1382, 598);
+            this.Controls.Add(this.encodePhae2);
             this.Controls.Add(this.encryptPhase2);
             this.Controls.Add(this.encTextBox);
             this.Controls.Add(this.ACII85Lable);
@@ -138,6 +150,7 @@
         private System.Windows.Forms.Label ACII85Lable;
         private System.Windows.Forms.TextBox encTextBox;
         private System.Windows.Forms.Button encryptPhase2;
+        private System.Windows.Forms.Button encodePhae2;
     }
 }
 

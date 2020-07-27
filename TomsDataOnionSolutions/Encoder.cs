@@ -48,7 +48,7 @@ namespace TomsDataOnionSolutions
                 encryptedChar[i] -= (char) offset;
                 decryptedNumber += (uint) (((int) encryptedChar[i]) * Math.Pow(85, (4 - i)));
             }
-            Console.WriteLine($"DecryptedNumber: {decryptedNumber}");
+            //Console.WriteLine($"DecryptedNumber: {decryptedNumber}");
 
             char[] resultArray = new char[4];
             for (int i = 0; i < resultArray.Length; i++)

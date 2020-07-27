@@ -3,6 +3,7 @@ using TomsDataOnionSolutions;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Runtime.CompilerServices;
 
 namespace TomsDataOnionSolutions.Tests
 {
@@ -69,6 +70,48 @@ namespace TomsDataOnionSolutions.Tests
             Assert.AreEqual<int>(result, 0);
             result = pbe.ParityBitCalculator(5);
             Assert.AreEqual<int>(result, 0);
+        }
+
+        [TestMethod()]
+        public void ParityBitCalculator8BitTest()
+        {
+            int result = 0;
+            result = pbe.ParityBitCalculator8Bit(199);
+            Assert.AreEqual<int>(result, 0);
+            result = pbe.ParityBitCalculator8Bit(53);
+            Assert.AreEqual<int>(result, 1);
+            result = pbe.ParityBitCalculator8Bit(142);
+            Assert.AreEqual<int>(result, 0);
+            result = pbe.ParityBitCalculator8Bit(255);
+            Assert.AreEqual<int>(result, 1);
+            result = pbe.ParityBitCalculator8Bit(238);
+            Assert.AreEqual<int>(result, 0);
+            result = pbe.ParityBitCalculator8Bit(201);
+            Assert.AreEqual<int>(result, 1);
+            result = pbe.ParityBitCalculator8Bit(178);
+            Assert.AreEqual<int>(result, 0);
+
+        }
+
+        [TestMethod()]
+        public void DeleteIllealByteTest()
+        {
+            char[] testSequence = { (char)77, (char)76, (char)80, (char)83, (char)84, (char)88 };
+            string result = pbe.DeleteIllegalBytes(new string(testSequence));
+            Assert.AreEqual<string>("MPS", result);
+        }
+
+        [TestMethod()]
+        public void ShiftTextTest()
+        {
+            // 72 101 108 108 111 33
+            // 01001000 01100101 01101100 01101100 01101111 00100001
+            String text = "Hello";
+            // 00100100 00110010 00110110 00110110 00110111 00010000
+            // 36 50 54 54 55 16
+            // $ 2 6 6 7 
+            String expected = "$2667";
+            Assert.AreEqual<string>(pbe.ShiftText(text), expected);
         }
     }
 }

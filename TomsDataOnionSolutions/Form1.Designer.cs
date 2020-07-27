@@ -37,11 +37,14 @@
             this.encTextBox = new System.Windows.Forms.TextBox();
             this.encryptPhase2 = new System.Windows.Forms.Button();
             this.encodePhae2 = new System.Windows.Forms.Button();
+            this.currentByteCount = new System.Windows.Forms.Label();
+            this.counterLabel = new System.Windows.Forms.Label();
+            this.cbBinaryDisplay = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // EncryptButton
             // 
-            this.EncryptButton.Location = new System.Drawing.Point(14, 557);
+            this.EncryptButton.Location = new System.Drawing.Point(14, 621);
             this.EncryptButton.Name = "EncryptButton";
             this.EncryptButton.Size = new System.Drawing.Size(87, 27);
             this.EncryptButton.TabIndex = 0;
@@ -51,7 +54,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(462, 559);
+            this.saveButton.Location = new System.Drawing.Point(1188, 621);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(87, 27);
             this.saveButton.TabIndex = 1;
@@ -61,7 +64,7 @@
             // 
             // closeButton
             // 
-            this.closeButton.Location = new System.Drawing.Point(1281, 557);
+            this.closeButton.Location = new System.Drawing.Point(1281, 621);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(87, 27);
             this.closeButton.TabIndex = 2;
@@ -91,17 +94,18 @@
             this.encTextBox.BackColor = System.Drawing.SystemColors.MenuText;
             this.encTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.encTextBox.Location = new System.Drawing.Point(14, 49);
-            this.encTextBox.MaxLength = 1000000;
+            this.encTextBox.MaxLength = 2000000;
             this.encTextBox.Multiline = true;
             this.encTextBox.Name = "encTextBox";
             this.encTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.encTextBox.Size = new System.Drawing.Size(1354, 489);
+            this.encTextBox.Size = new System.Drawing.Size(1418, 501);
             this.encTextBox.TabIndex = 5;
+            this.encTextBox.WordWrap = false;
             this.encTextBox.TextChanged += new System.EventHandler(this.encTextBox_TextChanged);
             // 
             // encryptPhase2
             // 
-            this.encryptPhase2.Location = new System.Drawing.Point(107, 557);
+            this.encryptPhase2.Location = new System.Drawing.Point(107, 621);
             this.encryptPhase2.Name = "encryptPhase2";
             this.encryptPhase2.Size = new System.Drawing.Size(132, 27);
             this.encryptPhase2.TabIndex = 6;
@@ -111,7 +115,7 @@
             // 
             // encodePhae2
             // 
-            this.encodePhae2.Location = new System.Drawing.Point(245, 557);
+            this.encodePhae2.Location = new System.Drawing.Point(245, 621);
             this.encodePhae2.Name = "encodePhae2";
             this.encodePhae2.Size = new System.Drawing.Size(132, 27);
             this.encodePhae2.TabIndex = 7;
@@ -119,12 +123,44 @@
             this.encodePhae2.UseVisualStyleBackColor = true;
             this.encodePhae2.Click += new System.EventHandler(this.encodePhae2_Click);
             // 
+            // currentByteCount
+            // 
+            this.currentByteCount.AutoSize = true;
+            this.currentByteCount.Location = new System.Drawing.Point(1257, 19);
+            this.currentByteCount.Name = "currentByteCount";
+            this.currentByteCount.Size = new System.Drawing.Size(14, 15);
+            this.currentByteCount.TabIndex = 8;
+            this.currentByteCount.Text = "0";
+            // 
+            // counterLabel
+            // 
+            this.counterLabel.AutoSize = true;
+            this.counterLabel.Location = new System.Drawing.Point(1160, 19);
+            this.counterLabel.Name = "counterLabel";
+            this.counterLabel.Size = new System.Drawing.Size(91, 15);
+            this.counterLabel.TabIndex = 9;
+            this.counterLabel.Text = "Bytes Count:";
+            // 
+            // cbBinaryDisplay
+            // 
+            this.cbBinaryDisplay.AutoSize = true;
+            this.cbBinaryDisplay.Location = new System.Drawing.Point(18, 556);
+            this.cbBinaryDisplay.Name = "cbBinaryDisplay";
+            this.cbBinaryDisplay.Size = new System.Drawing.Size(173, 19);
+            this.cbBinaryDisplay.TabIndex = 10;
+            this.cbBinaryDisplay.Text = "Binary Representation";
+            this.cbBinaryDisplay.UseVisualStyleBackColor = true;
+            this.cbBinaryDisplay.CheckedChanged += new System.EventHandler(this.cbBinaryDisplay_CheckedChanged);
+            // 
             // EncryptionWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(1382, 598);
+            this.ClientSize = new System.Drawing.Size(1444, 660);
+            this.Controls.Add(this.cbBinaryDisplay);
+            this.Controls.Add(this.counterLabel);
+            this.Controls.Add(this.currentByteCount);
             this.Controls.Add(this.encodePhae2);
             this.Controls.Add(this.encryptPhase2);
             this.Controls.Add(this.encTextBox);
@@ -151,6 +187,9 @@
         private System.Windows.Forms.TextBox encTextBox;
         private System.Windows.Forms.Button encryptPhase2;
         private System.Windows.Forms.Button encodePhae2;
+        private System.Windows.Forms.Label currentByteCount;
+        private System.Windows.Forms.Label counterLabel;
+        private System.Windows.Forms.CheckBox cbBinaryDisplay;
     }
 }
 

@@ -41,32 +41,34 @@ namespace TomsDataOnionSolutions
             return num >> 1;
         }
 
-        public string DeleteIllegalByte(string illegalEncryptedText)
+        public string DeleteIllegalBytes(string illegalEncryptedText)
         {
-            IList<int> toDelete = new List<int>();
-            char[] illegalEncryptedTextChar = illegalEncryptedText.ToCharArray();
-            for (int i = 0; i < illegalEncryptedTextChar.Length; i++)
+            StringBuilder result = new StringBuilder();
+            var legalCharEnumeration = illegalEncryptedText.Where<char>(c => compareParity((int)c));
+            foreach (char c in legalCharEnumeration)
             {
-                if (ParityBitCalculator8Bit((int) illegalEncryptedTextChar[i]) != extractParityBit(illegalEncryptedTextChar[i])) {
-                    toDelete.Add(i);
-                }
+                result.Append(c);
             }
 
-            foreach(int index in toDelete) {
-                illegalEncryptedText.Remove(index, 1);
-            }
-            return illegalEncryptedText;
+            return result.ToString();
+        }
+
+        public bool compareParity(int i)
+        {
+            return ParityBitCalculator8Bit(i) == extractParityBit(i);
         }
 
         public string ShiftText(string legalEncryptedText)
         {
-            return "";
+            StringBuilder result = new StringBuilder();
+            foreach(char c in legalEncryptedText) {
+                result.Append((char)deleteParity((int)c));
+            }
+            return result.ToString();
         }
         public string decodeAll(string encryptedText)
         {
-            string legalEncryptedText = DeleteIllegalByte(encryptedText);
-            string decryptedText = ShiftText(legalEncryptedText);
-            return decryptedText;
+            return ShiftText(DeleteIllegalBytes(encryptedText));
         }
     }
 }

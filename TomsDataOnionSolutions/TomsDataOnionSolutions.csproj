@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BitShifter.cs" />
+    <Compile Include="DisplayHelper.cs" />
     <Compile Include="ParityBitEncoder.cs" />
     <Compile Include="Utility.cs" />
     <Compile Include="Encoder.cs" />
